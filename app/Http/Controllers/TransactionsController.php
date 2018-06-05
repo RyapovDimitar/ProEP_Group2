@@ -58,7 +58,7 @@ class TransactionsController extends Controller
             $value_to_buy = $value_to_buy*$amount_to_buy;
 
             $value_to_sell = $currency_to_sell->stockvalue*$usercurrency_to_sell->balance;
-            if($value_to_sell>$value_to_buy){
+            if($value_to_sell>=$value_to_buy){
                 $transaction_buy = new Transaction();
                 $transaction_buy->user_id = $user_id;
                 $transaction_buy->crypto_id = $currency_to_buy->id;

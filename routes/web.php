@@ -23,6 +23,7 @@ Route::middleware(['checkHeader'])->group(function () {
     Route::get('/make_report/{username}', 'TransactionsController@make_report');
 
     Route::post('/register_user', 'UsersController@register');
+    Route::post('/login_user', 'UsersController@login');
 
     Route::post('/currency/add', 'CurrenciesController@add');
     Route::post('/currency/update', 'CurrenciesController@changeValue');

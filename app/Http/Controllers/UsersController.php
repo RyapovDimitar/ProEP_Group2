@@ -43,4 +43,22 @@ class UsersController extends Controller
             ], 200);
         }
     }
+
+    public function login(Request $request){
+        if(!isset($request->username)||!isset($request->password)
+            )
+        {
+            return Response::json([
+                'message' => 'Incorrect input!'
+            ], 201);
+        }
+        $pass = bcrypt($request->password);
+        $user = User::where('username', $request->username)->where('password', $pass)->first();
+        if($user!=null){
+            return 'user logged in successfully';
+        }
+        else{
+            return 'no such user was found';
+        }
+    }
 }
